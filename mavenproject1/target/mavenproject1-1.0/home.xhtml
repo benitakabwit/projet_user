@@ -10,30 +10,32 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
     
 </head>
-<body class="d-flex justify-content-center align-items-center vh-100 bg-light">
-
-    <div class="container text-center p-4 shadow bg-white rounded" style="max-width: 400px;">
-        <!-- Drapeau de l'Indonésie avec bordure -->
-       
-        <h4 class="mb-2">VOTRE CHOIX</h4>
-
+<h:body class="bg-light d-flex align-items-center justify-content-center vh-100">
+    <div class="container text-center">
+        <div class="card shadow p-4 bg-white rounded">
+            <div class="card-body">
+                <h1 class="display-4 text-primary">EH! Glad to see you on our blog</h1>
+                <h2 class="text-secondary">Knowledge belongs to those who go in unknown directions</h2>
+                <p class="lead text-dark">The power to want to create the duty to be able, and knowledge is only acquired through experience. The rest is only uncertain 
+                    information. We hope that our blog will be a light of hope for you.</p>
+            </div>
+        </div>
         <h:form>
-          
-
-            <!-- Bouton Commencer -->
-            <h:commandButton value="Ajouter" action="#{NavigationBean.voirAjouter}" 
-                             styleClass="btn btn-danger w-100 mb-3"/><br/>
-            <h:commandButton value="Visiter" action="#{NavigationBean.voirVisiter}" 
-                             styleClass="btn btn-danger w-100 mb-3"/><br/>
-            <h:commandButton value="A propos" action="#{NavigationBean.voirApropos}" 
-                             styleClass="btn btn-danger w-100 mb-3"/><br/>
+            <div class="d-flex justify-content-center gap-2 mt-4">
+                <!-- Bouton Ajouter -->
+                <h:commandButton value="Ajouter" action="#{NavigationBean.voirAjouter}" 
+                                 styleClass="btn btn-primary"/>
+                <!-- Bouton Visiter -->
+                <h:commandButton value="Visiter" action="#{NavigationBean.voirVisiter}" 
+                                 styleClass="btn btn-secondary"/>
+                <!-- Bouton A propos -->
+                <h:commandButton value="A propos" action="#{NavigationBean.voirApropos}" 
+                                 styleClass="btn btn-danger"/>
+            </div>
         </h:form>
-
-    
     </div>
-
     <!-- Bootstrap JS (nécessaire si vous utilisez des composants interactifs comme modals, tooltips, etc.) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-</body>
+</h:body>
 </html>

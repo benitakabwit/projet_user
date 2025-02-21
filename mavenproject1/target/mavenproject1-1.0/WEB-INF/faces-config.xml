@@ -5,6 +5,9 @@
         <from-outcome>home</from-outcome>
         <to-view-id>/home.xhtml</to-view-id>
         <redirect/>
+        <from-outcome>ajouter</from-outcome>
+        <to-view-id>/lieu.xhtml</to-view-id>
+        <redirect/>
     </navigation-case>
 </navigation-rule>
 

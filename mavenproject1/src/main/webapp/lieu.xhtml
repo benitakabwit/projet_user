@@ -9,72 +9,71 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
 </head>
 <body class="d-flex justify-content-center align-items-center vh-100 bg-light">
-    <div class="container text-center p-4 shadow bg-white rounded" style="max-width: 800px;">
-        <h4 class="mb-2">Ajouter des Lieux</h4>
-
-        <h:form>
-            <div class="mb-2">
-                <h:outputLabel for="nom" value="Nom :" />
-                <h:inputText id="nom" value="#{lieuBean.nom}" class="form-control" required="true" />
+    <div class="container p-4 shadow bg-white rounded" style="max-width: 1200px;">
+        <div class="row">
+            <!-- Formulaire Ajouter Lieu -->
+            <div class="col-md-5">
+                <h4 class="mb-3 text-center">Ajouter un Lieu</h4>
+                <h:form>
+                    <div class="mb-3">
+                        <h:outputLabel for="nom" value="Nom :" />
+                        <h:inputText id="nom" value="#{lieuBean.nom}" class="form-control" required="true" />
+                    </div>
+                    <div class="mb-3">
+                        <h:outputLabel for="description" value="Description :" />
+                        <h:inputTextarea id="description" value="#{lieuBean.description}" class="form-control" required="true" />
+                    </div>
+                    <div class="mb-3">
+                        <h:outputLabel for="latitude" value="Latitude :" />
+                        <h:inputText id="latitude" value="#{lieuBean.latitude}" class="form-control" required="true" />
+                    </div>
+                    <div class="mb-3">
+                        <h:outputLabel for="longitude" value="Longitude :" />
+                        <h:inputText id="longitude" value="#{lieuBean.longitude}" class="form-control" required="true" />
+                    </div>
+                    <h:commandButton value="Enregistrer" action="#{lieuBean.enregistrerLieu()}" class="btn btn-primary w-100" />
+                </h:form>
             </div>
 
-            <div class="mb-2">
-                <h:outputLabel for="description" value="Description :" />
-                <h:inputTextarea id="description" value="#{lieuBean.description}" class="form-control" required="true" />
+            <!-- Liste des Lieux -->
+            <div class="col-md-7">
+                <h4 class="mb-3 text-center">Liste des Lieux</h4>
+                <h:panelGroup rendered="#{not empty lieuBean.listeLieux}">
+                    <table class="table table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Description</th>
+                                <th>Latitude</th>
+                                <th>Longitude</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ui:repeat value="#{lieuBean.listeLieux}" var="lieu">
+                                <tr>
+                                    <td>#{lieu.id}</td>
+                                    <td>#{lieu.nom}</td>
+                                    <td>#{lieu.description}</td>
+                                    <td>#{lieu.latitude}</td>
+                                    <td>#{lieu.longitude}</td>
+                                    <td>
+                                        <h:form style="display: flex; gap: 5px;">
+                                            <h:commandButton value="Modifier" action="#{lieuBean.preparerModification(lieu)}" 
+                                                             class="btn btn-info btn-sm" />
+                                            <h:commandButton value="Supprimer" action="#{lieuBean.supprimerLieu(lieu.id)}" 
+                                                             class="btn btn-danger btn-sm" />
+                                        </h:form>
+                                    </td>
+                                </tr>
+                            </ui:repeat>
+                        </tbody>
+                    </table>
+                </h:panelGroup>
             </div>
-
-            <div class="mb-2">
-                <h:outputLabel for="latitude" value="Latitude :" />
-                <h:inputText id="latitude" value="#{lieuBean.latitude}" class="form-control" required="true" />
-            </div>
-
-            <div class="mb-2">
-                <h:outputLabel for="longitude" value="Longitude :" />
-                <h:inputText id="longitude" value="#{lieuBean.longitude}" class="form-control" required="true" />
-            </div>
-
-            <h:commandButton value="Enregistrer" action="#{lieuBean.enregistrerLieu()}" class="btn btn-primary" />
-        </h:form>
-
-        <!-- Affichage de la liste des lieux -->
-        <h:panelGroup rendered="#{not empty lieuBean.listeLieux}">
-            <h4 class="mt-3">Liste des Lieux :</h4>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nom</th>
-                        <th>Description</th>
-                        <th>Latitude</th>
-                        <th>Longitude</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <ui:repeat value="#{lieuBean.listeLieux}" var="lieu">
-                        <tr>
-                            <td>#{lieu.id}</td>
-                            <td>#{lieu.nom}</td>
-                            <td>#{lieu.description}</td>
-                            <td>#{lieu.latitude}</td>
-                            <td>#{lieu.longitude}</td>
-                            <td>
-                                <h:form>
-                                    <!-- Bouton Modifier en bleu ciel -->
-                                    <h:commandButton value="Modifier" action="#{lieuBean.preparerModification(lieu)}" 
-                                                     class="btn btn-info btn-sm mb-2" />
-                                    <!-- Bouton Supprimer en rouge -->
-                                    <h:commandButton value="Supprimer" action="#{lieuBean.supprimerLieu(lieu.id)}" 
-                                                     class="btn btn-danger btn-sm mb-2" />
-                                </h:form>
-                            </td>
-                        </tr>
-                    </ui:repeat>
-                </tbody>
-            </table>
-        </h:panelGroup>
+        </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -4,32 +4,26 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <head>
-    <title>a propos </title>
-    
-    <!-- Intégration de Bootstrap -->
+    <title>A propos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
-    
 </head>
 <body class="d-flex justify-content-center align-items-center vh-100 bg-light">
 
     <div class="container text-center p-4 shadow bg-white rounded" style="max-width: 400px;">
-        <h4 class="mb-2">A PROPOS</h4>
+        
 
         <h:form>
-            
-            <p> Nous une equipe de programmeurs qui seront gradues dans quelque mois pour vous mais monsieur yves </p>
-          
-
-            <!-- Bouton Commencer -->
-            <!--h:commandButton value="Accueil" action="index" 
-                             styleClass="btn btn-danger w-100"/-->
+            <div class="mt-3">
+                <h2 class="text-secondary">À</h2>
+                <p class="text-muted">Chaque personne est une enveloppe contenant une histoire indispensable à l'oreille. Nous vous prions de nous explorer.</p>
+            </div>            <div class="d-flex justify-content-between">
+                <h:commandButton value="Home" action="index" styleClass="btn btn-danger" />
+                <h:commandButton value="Visiter" action="visiter" styleClass="btn btn-secondary" />
+                <h:commandButton value="Ajouter" action="lieu" styleClass="btn btn-primary" />
+            </div>
         </h:form>
-
-    
     </div>
 
-    <!-- Bootstrap JS (nécessaire si vous utilisez des composants interactifs comme modals, tooltips, etc.) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
