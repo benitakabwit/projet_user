@@ -1,5 +1,13 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package business;
 
+/**
+ *
+ * @author kabwi
+ */
 import entities.Lieu;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
@@ -14,16 +22,16 @@ public class LieuEntrepriseBean {
     private EntityManager em;
 
     @Transactional
-    public void ajouterLieuEntreprise(String nom, String description, double latitude, double longitude) {
-        Lieu lieu = new Lieu(nom, description, longitude, latitude);
+    public void ajouterLieuEntreprise(String nomLieu, String description, double latitude, double longitude) {
+        Lieu lieu = new Lieu(nomLieu, description, longitude, latitude);
         em.persist(lieu);
     }
 
     @Transactional
-    public void modifierLieuEntreprise(int id, String nom, String description, double latitude, double longitude) {
+    public void modifierLieuEntreprise(int id, String nomLieu, String description, double latitude, double longitude) {
         Lieu lieu = em.find(Lieu.class, id);
         if (lieu != null) {
-            lieu.setNom(nom);
+            lieu.setNomLieu(nomLieu);
             lieu.setDescription(description);
             lieu.setLatitude(latitude);
             lieu.setLongitude(longitude);

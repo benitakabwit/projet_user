@@ -17,7 +17,7 @@
                 <h:form>
                     <div class="mb-3">
                         <h:outputLabel for="nom" value="Nom :" />
-                        <h:inputText id="nom" value="#{lieuBean.nom}" class="form-control" required="true" />
+                        <h:inputText id="nom" value="#{lieuBean.nomLieu}" class="form-control" required="true" />
                     </div>
                     <div class="mb-3">
                         <h:outputLabel for="description" value="Description :" />
@@ -54,7 +54,7 @@
                             <ui:repeat value="#{lieuBean.listeLieux}" var="lieu">
                                 <tr>
                                     <td>#{lieu.id}</td>
-                                    <td>#{lieu.nom}</td>
+                                    <td>#{lieu.nomLieu}</td>
                                     <td>#{lieu.description}</td>
                                     <td>#{lieu.latitude}</td>
                                     <td>#{lieu.longitude}</td>

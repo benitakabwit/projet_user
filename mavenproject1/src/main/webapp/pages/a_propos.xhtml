@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+    <title>Profil Utilisateur</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+</head>
+<body class="bg-light d-flex justify-content-center align-items-center vh-100">
+
+    <div class="container bg-white shadow rounded p-4" style="max-width: 600px;">
+        <!-- Bouton Déconnexion aligné à droite -->
+        <div class="d-flex justify-content-end">
+            <h:commandButton value="Déconnexion" action="#{userBean.logout}" styleClass="btn btn-danger" />
+        </div>
+
+        <h2 class="text-dark mt-2 text-center">Profil Utilisateur</h2>
+
+        <!-- Formulaire utilisateur -->
+        <h:form id="profilForm">
+            <h:panelGrid columns="2" styleClass="mb-3">
+                <h:outputLabel value="Nom:" />
+                <h:inputText id="username" value="#{UtilisateurBean.username}" disabled="true" class="form-control" />
+
+                <h:outputLabel value="Email:" />
+                <h:inputText value="#{UtilisateurBean.email}" disabled="true" class="form-control" />
+
+                <h:outputLabel value="Description:" />
+                <h:inputTextarea id="description" value="#{UtilisateurBean.description}" disabled="true" class="form-control" rows="4" />
+
+                <h:outputLabel value="Nouveau mot de passe:" />
+                <h:inputSecret id="password" value="#{UtilisateurBean.password}" disabled="true" class="form-control" />
+
+                <h:outputLabel value="Confirmer mot de passe:" />
+                <h:inputSecret id="confirmPassword" value="#{UtilisateurBean.confirmPassword}" disabled="true" class="form-control" />
+            </h:panelGrid>
+
+            <!-- Boutons Modifier et Enregistrer -->
+            <h:panelGrid columns="2">
+                <h:commandButton value="Modifier" type="button" onclick="activerEdition()" class="btn btn-warning" />
+                <h:commandButton value="Enregistrer" action="#{profilBean.modifierUtilisateur}" class="btn btn-success" />
+            </h:panelGrid>
+        </h:form>
+
+    </div>
+
+    <!-- Script pour activer l'édition -->
+    <script>
+        function activerEdition() {
+            // Désactiver l'attribut disabled
+            document.getElementById("profilForm:username").removeAttribute("disabled");
+            document.getElementById("profilForm:description").removeAttribute("disabled");
+            document.getElementById("profilForm:password").removeAttribute("disabled");
+            document.getElementById("profilForm:confirmPassword").removeAttribute("disabled");
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

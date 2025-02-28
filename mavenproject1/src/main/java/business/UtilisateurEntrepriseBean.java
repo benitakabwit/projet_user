@@ -12,6 +12,8 @@ import jakarta.transaction.Transactional;
 import java.util.List;
 import org.mindrot.jbcrypt.BCrypt;
 import entities.Utilisateur;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
 
 @Stateless
 public class UtilisateurEntrepriseBean {
@@ -67,6 +69,23 @@ public class UtilisateurEntrepriseBean {
     
     // Méthode pour vérifier un mot de passe 
     public boolean verifierMotDePasse(String password, String hashedPassword)
-    { return BCrypt.checkpw(password, hashedPassword); }
+    { 
+        return BCrypt.checkpw(password, hashedPassword); 
+    
+    }
+    
+    public Utilisateur authentifier(String email, String password){
+        Utilisateur user = trouverUtilisateurParEmail(email);
+        if (user != null && verifierMotDePasse(password,user.getPassword())){
+            return user;
+        }
+        
+        return null;
+    }
+
+    public void mettreAJourUtilisateur(Utilisateur utilisateur) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 
 }

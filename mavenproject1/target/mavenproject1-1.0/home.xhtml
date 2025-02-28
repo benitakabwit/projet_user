@@ -12,21 +12,14 @@
 </head>
 <h:body class="bg-light d-flex align-items-center justify-content-center vh-100">
     <div class="container text-center">
-        <div class="card shadow p-4 bg-white rounded">
-            <div class="card-body">
-                <h1 class="display-4 text-primary">EH! Glad to see you on our blog</h1>
-                <h2 class="text-secondary">Knowledge belongs to those who go in unknown directions</h2>
-                <p class="lead text-dark">The power to want to create the duty to be able, and knowledge is only acquired through experience. The rest is only uncertain 
-                    information. We hope that our blog will be a light of hope for you.</p>
-            </div>
-        </div>
+       
         <h:form>
             <div class="d-flex justify-content-center gap-2 mt-4">
                 <!-- Bouton Ajouter -->
                 <h:commandButton value="Ajouter" action="#{NavigationBean.voirAjouter}" 
                                  styleClass="btn btn-primary"/>
                 <!-- Bouton Visiter -->
-                <h:commandButton value="Visiter" action="#{NavigationBean.voirVisiter}" 
+                <h:commandButton value="Visiter" action="#{NavigationBean.visiterLieux}" 
                                  styleClass="btn btn-secondary"/>
                 <!-- Bouton A propos -->
                 <h:commandButton value="A propos" action="#{NavigationBean.voirApropos}" 

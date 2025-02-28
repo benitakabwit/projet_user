@@ -11,8 +11,8 @@ public class Lieu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name="nom")
-    private String nom;
+    @Column(name="nom_lieu")
+    private String nomLieu;
     private String description;
     private double longitude;
     private double latitude;
@@ -20,8 +20,8 @@ public class Lieu {
     // Constructeurs
     public Lieu() {}
 
-    public Lieu(String nom, String description, double longitude, double latitude) {
-        this.nom = nom;
+    public Lieu(String nomLieu, String description, double longitude, double latitude) {
+        this.nomLieu = nomLieu;
         this.description = description;
         this.longitude = longitude;
         this.latitude = latitude;
@@ -31,8 +31,8 @@ public class Lieu {
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
-    public String getNom() { return nom; }
-    public void setNom(String nom) { this.nom = nom; }
+    public String getNomLieu() { return nomLieu; }
+    public void setNomLieu(String nomLieu) {this.nomLieu = nomLieu; }
 
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
@@ -42,4 +42,6 @@ public class Lieu {
 
     public double getLatitude() { return latitude; }
     public void setLatitude(double latitude) { this.latitude = latitude; }
+
+   
 }
